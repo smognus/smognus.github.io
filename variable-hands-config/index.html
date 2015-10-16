@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Slate Example Configuration</title>
+  <title>Variable Hands Configuration</title>
   <link rel='stylesheet' type='text/css' href='css/slate.min.css'>
   <script src='js/slate.min.js'></script>
   <style>
@@ -19,14 +19,6 @@
 
   <body>
     <h1 class='title'>Variable Hands Configuration</h1>
-
-    <div class='item-container'>
-      <div class='item-container-content'>
-        <div class='item'>
-          Variable Hands
-        </div>
-      </div>
-    </div>
 
     <div class='item-container'>
       <div class='item-container-content'>
@@ -74,6 +66,8 @@
   <script>
  function getConfigData() {
    var tickSetting = document.getElementById('tick_setting_slider');
+   var daySetting = document.getElementById('day_setting_slider');
+   var invertSetting = document.getElementById('invert_setting_slider');
 
    var options = {
      'tickSetting': tick_setting_slider.checked,
