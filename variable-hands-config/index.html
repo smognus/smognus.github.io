@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>Variable Hands Configuration</title>
-  <link rel="stylesheet" type="text/css" href="css/slate.min.css">
-  <script src="js/slate.min.js"></script>
-  <script src="js/variable-hands.js"></script>
-  <style>
-  .title {
-    padding: 15px 10px;
-    text-transform: uppercase;
-    font-family: "PT Sans", sans-serif;
-    font-size: 1.2em;
-    font-weight: 500;
-    color: #888888;
-    text-align: center;
-  }
-  </style>
+    <title>Variable Hands Configuration</title>
+    <link rel="stylesheet" type="text/css" href="css/slate.min.css">
+    <script src="js/slate.min.js"></script>
+    <style>
+      .title {
+      padding: 15px 10px;
+      text-transform: uppercase;
+      font-family: "PT Sans", sans-serif;
+      font-size: 1.2em;
+      font-weight: 500;
+      color: #888888;
+      text-align: center;
+      }
+    </style>
   </head>
-
   <body>
     <h1 class="title">Variable Hands Configuration</h1>
 
@@ -37,14 +35,14 @@
       <div class="item-container-content">
 	<label class="item">
 	  Second Hand Start Time
-	  <input type="range" min="0" max="24" class="item-slider" name="second_hand_start_slider" value="0">
+	  <input type="range" min="0" max="24" class="item-slider" name="second_hand_start_slider" id="second_hand_start_actual_slider" value="0">
 	  <div class="item-input-wrapper item-slider-text">
             <input type="text" class="item-input" name="second_hand_start_slider" value="0" id="second_hand_start">
 	  </div>
 	</label>
 	<label class="item">
 	  Second Hand End Time
-	  <input type="range" min="0" max="24" class="item-slider" name="second_hand_end_slider" value="24">
+	  <input type="range" min="0" max="24" class="item-slider" name="second_hand_end_slider" id="second_hand_end_actual_slider" value="24">
 	  <div class="item-input-wrapper item-slider-text">
             <input type="text" class="item-input" name="second_hand_end_slider" value="24" id="second_hand_end">
 	  </div>
@@ -62,6 +60,7 @@
           <input id="day_setting_slider" type="checkbox" class="item-toggle">
         </label>
       </div>
+
       <div class="item-container-footer">
         Draw a date window with the current day in it.
       </div>
@@ -74,16 +73,17 @@
           <input id="battery_setting_slider" type="checkbox" class="item-toggle">
         </label>
       </div>
+
       <div class="item-container-footer">
-       Show the current battery level underneath the `12'. 
+	Show the current battery level underneath the `12'. 
       </div>
     </div>
-
 
     <div class="item-container">
       <div class="button-container">
         <input id="submit_button" type="button" class="item-button" value="SUBMIT">
       </div>
     </div>
+    <script src="js/variable-hands.js"></script>    
   </body>
 </html>
