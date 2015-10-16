@@ -47,12 +47,12 @@
     <div class='item-container'>
       <div class='item-container-content'>
         <label class='item'>
-          Invert Colors
-          <input id='invert_setting_slider' type='checkbox' class='item-toggle'>
+          Battery Status
+          <input id='battery_setting_slider' type='checkbox' class='item-toggle'>
         </label>
       </div>
       <div class='item-container-footer'>
-        Invert the entire watchface.
+       Show the current battery level underneath the `12'. 
       </div>
     </div>
 
@@ -67,18 +67,18 @@
  function getConfigData() {
    var tickSetting = document.getElementById('tick_setting_slider');
    var daySetting = document.getElementById('day_setting_slider');
-   var invertSetting = document.getElementById('invert_setting_slider');
+   var batterySetting = document.getElementById('battery_setting_slider');
 
    var options = {
      'tickSetting': tick_setting_slider.checked,
      'daySetting': day_setting_slider.checked,
-     'invertSetting': invert_setting_slider.checked 
+     'batterySetting': battery_setting_slider.checked 
    };
 
    // Save for next launch
    localStorage['tick_setting'] = options['tickSetting'];
    localStorage['day_setting'] = options['daySetting'];
-   localStorage['invert_setting'] = options['invertSetting'];
+   localStorage['battery_setting'] = options['batterySetting'];
 
    console.log('Got options: ' + JSON.stringify(options));
    return options;
@@ -108,13 +108,13 @@
   (function() {
     var tickSetting = document.getElementById('tick_setting_slider');
     var daySetting = document.getElementById('day_setting_slider');
-    var invertSetting = document.getElementById('invert_setting_slider');
+    var batterySetting = document.getElementById('battery_setting_slider');
 
     // Load any previously saved configuration, if available
     if(localStorage['tick_setting']) {
       tickSetting.checked = JSON.parse(localStorage['tick_setting']);
       daySetting.checked = JSON.parse(localStorage['day_setting']);
-      invertSetting.checked = JSON.parse(localStorage['invert_setting']);
+      batterySetting.checked = JSON.parse(localStorage['battery_setting']);
     }
   })();
   </script>
