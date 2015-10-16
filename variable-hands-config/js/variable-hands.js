@@ -9,8 +9,8 @@ function getConfigData() {
 	'tickSetting': tick_setting_slider.checked,
 	'daySetting': day_setting_slider.checked,
 	'batterySetting': battery_setting_slider.checked,
-	'secondStartSetting': second_hand_start.value,
-	'secondEndSetting': second_hand_end.value
+	'secondStartSetting': Number(second_hand_start.value),
+	'secondEndSetting': Number(second_hand_end.value)
     };
 
     // Save for next launch
