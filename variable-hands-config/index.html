@@ -1,4 +1,4 @@
-A<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
   <title>Slate Example Configuration</title>
@@ -18,7 +18,7 @@ A<!DOCTYPE html>
   </head>
 
   <body>
-    <h1 class='title'>Slate Example Configuration</h1>
+    <h1 class='title'>Variable Hands Configuration</h1>
 
     <div class='item-container'>
       <div class='item-container-content'>
@@ -28,24 +28,11 @@ A<!DOCTYPE html>
       </div>
     </div>
 
-    <!-- <div class='item-container'> -->
-    <!--   <div class='item-container-header'>Customizability</div> -->
-    <!--   <div class='item-container-content'> -->
-    <!--     <label class='item'> -->
-    <!--       Background Color -->
-    <!--       <input id='background_color_picker' type='text' class='item-color item-color-sunny' value='#000000'> -->
-    <!--     </label> -->
-    <!--   </div> -->
-    <!--   <div class='item-container-footer'> -->
-    <!--     Choose the app's background color. Used if High Contrast Mode is not selected. Note: Only available on Basalt watches that support many colors. -->
-    <!--   </div> -->
-    <!-- </div> -->
-
     <div class='item-container'>
       <div class='item-container-header'>Hands</div>
       <div class='item-container-content'>
         <label class='item'>
-          Seconds Hand
+          Second Hand
           <input id='tick_setting_slider' type='checkbox' class='item-toggle'>
         </label>
       </div>
@@ -53,6 +40,33 @@ A<!DOCTYPE html>
         Show the second hand.
       </div>
     </div>
+
+    <div class='item-container'>
+      <div class='item-container-header'>Hands</div>
+      <div class='item-container-content'>
+        <label class='item'>
+          Show Day
+          <input id='day_setting_slider' type='checkbox' class='item-toggle'>
+        </label>
+      </div>
+      <div class='item-container-footer'>
+        Show the second hand.
+      </div>
+    </div>
+
+    <div class='item-container'>
+      <div class='item-container-header'>Hands</div>
+      <div class='item-container-content'>
+        <label class='item'>
+          Invert Colors
+          <input id='invert_setting_slider' type='checkbox' class='item-toggle'>
+        </label>
+      </div>
+      <div class='item-container-footer'>
+        Show the second hand.
+      </div>
+    </div>
+
 
     <div class='item-container'>
       <div class='button-container'>
@@ -65,11 +79,15 @@ A<!DOCTYPE html>
    var tickSetting = document.getElementById('tick_setting_slider');
 
    var options = {
-     'tickSetting': tick_setting_slider.checked
+     'tickSetting': tick_setting_slider.checked,
+     'daySetting': day_setting_slider.checked,
+     'invertSetting': invert_setting_slider.checked 
    };
 
    // Save for next launch
    localStorage['tick_setting'] = options['tickSetting'];
+   localStorage['day_setting'] = options['daySetting'];
+   localStorage['invert_setting'] = options['invertSetting'];
 
    console.log('Got options: ' + JSON.stringify(options));
    return options;
@@ -102,6 +120,8 @@ A<!DOCTYPE html>
     // Load any previously saved configuration, if available
     if(localStorage['tick_setting']) {
       tickSetting.checked = JSON.parse(localStorage['tick_setting']);
+      daySetting.checked = JSON.parse(localStorage['day_setting']);
+      invertSetting.checked = JSON.parse(localStorage['invert_setting']);
     }
   })();
   </script>
