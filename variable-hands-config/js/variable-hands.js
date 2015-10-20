@@ -4,13 +4,21 @@ function getConfigData() {
     var batterySetting = document.getElementById('battery_setting_slider');
     var secondStartSetting = document.getElementById('second_hand_start');
     var secondEndSetting = document.getElementById('second_hand_end');
+    var digitalSetting = document.getElementById('digital_setting_slider');
+    var windowColorSetting = document.getElementById('window_color');
+    var windowBorderColorSetting = document.getElementById('window_border_color');
+    var windowTextColorSetting = document.getElementById('window_text_color');
 
     var options = {
 	'tickSetting': tick_setting_slider.checked,
 	'daySetting': day_setting_slider.checked,
 	'batterySetting': battery_setting_slider.checked,
 	'secondStartSetting': Number(second_hand_start.value),
-	'secondEndSetting': Number(second_hand_end.value)
+	'secondEndSetting': Number(second_hand_end.value),
+	'digitalSetting': digital_setting_slider.checked,
+	'windowColorSetting': window_color.value,
+	'windowBorderColorSetting': window_border_color.value,
+	'windowTextColorSetting': window_text_color.value
     };
 
     // Save for next launch
@@ -19,6 +27,11 @@ function getConfigData() {
     localStorage['battery_setting'] = options['batterySetting'];
     localStorage['second_hand_start_setting'] = options['secondStartSetting'];
     localStorage['second_hand_end_setting'] = options['secondEndSetting'];
+    localStorage['digital_setting'] = options['digitalSetting'];
+    localStorage['window_color'] = options['windowColorSetting'];
+    localStorage['window_border_color'] = options['windowBorderColorSetting'];
+    localStorage['window_text_color'] = options['windowTextColorSetting'];
+
 
     console.log('Got options: ' + JSON.stringify(options));
     return options;
@@ -53,16 +66,56 @@ submitButton.addEventListener('click', function() {
     var secondEndSettingSlider = document.getElementById('second_hand_end_actual_slider');
     var secondStartSettingText = document.getElementById('second_hand_start');
     var secondEndSettingText = document.getElementById('second_hand_end');
+    var digitalSetting = document.getElementById('digital_setting_slider');
+    var windowColorSetting = document.getElementById('window_color');
+    var windowBorderColorSetting = document.getElementById('window_border_color');
+    var windowTextColorSetting = document.getElementById('window_text_color');
 
     // Load any previously saved configuration, if available
     if(localStorage['tick_setting']) {
+	console.log('tick_setting found');
 	tickSetting.checked = JSON.parse(localStorage['tick_setting']);
+    }
+    if(localStorage['day_setting']) {
+	console.log('day_setting found');
 	daySetting.checked = JSON.parse(localStorage['day_setting']);
+    }
+    if(localStorage['battery_setting']) {
+	console.log('battery_setting found');
 	batterySetting.checked = JSON.parse(localStorage['battery_setting']);
+    }
+    if(localStorage['second_hand_start_setting']) {
+	console.log('second_hand_start_setting found');
 	secondStartSettingSlider.value = JSON.parse(localStorage['second_hand_start_setting']);
+    }
+    if(localStorage['second_hand_end_setting']) {
+	console.log('second_hand_end_setting found');
 	secondEndSettingSlider.value = JSON.parse(localStorage['second_hand_end_setting']);
+    }
+    if(localStorage['second_hand_start_setting']) {
+	console.log('second_hand_start_setting found');
 	secondStartSettingText.value = JSON.parse(localStorage['second_hand_start_setting']);
+    }
+    if(localStorage['second_hand_end_setting']) {
+	console.log('second_hand_end_setting found');
 	secondEndSettingText.value = JSON.parse(localStorage['second_hand_end_setting']);
     }
+    if(localStorage['digital_setting']) {
+	console.log('digital_setting found');
+	digitalSetting.checked = JSON.parse(localStorage['digital_setting']);
+    }
+    if (localStorage['window_color']) {
+	console.log('window_color found');
+	windowColorSetting.value = localStorage['window_color'];
+    }
+    if (localStorage['window_border_color']) {
+	console.log('window_border_color found');
+	windowBorderColorSetting.value = localStorage['window_border_color'];
+    }
+    if (localStorage['window_text_color']) {
+	console.log('window_text_color found');
+	windowTextColorSetting.value = localStorage['window_text_color'];
+    }
+
 })();
 
