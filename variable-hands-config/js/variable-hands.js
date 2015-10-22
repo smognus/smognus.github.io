@@ -8,6 +8,9 @@ function getConfigData() {
     var windowColorSetting = document.getElementById('window_color');
     var windowBorderColorSetting = document.getElementById('window_border_color');
     var windowTextColorSetting = document.getElementById('window_text_color');
+    var lightThemeSetting = document.getElementById('light_theme_setting_slider');
+    var secondHandColorSetting = document.getElementById('second_hand_color');
+    var secondOutlineColorSetting = document.getElementById('second_outline_color');
 
     var options = {
 	'tickSetting': tick_setting_slider.checked,
@@ -18,7 +21,10 @@ function getConfigData() {
 	'digitalSetting': digital_setting_slider.checked,
 	'windowColorSetting': window_color.value,
 	'windowBorderColorSetting': window_border_color.value,
-	'windowTextColorSetting': window_text_color.value
+	'windowTextColorSetting': window_text_color.value,
+	'lightThemeSetting': light_theme_setting_slider.checked,
+	'secondHandColorSetting': second_hand_color.value,
+	'secondOutlineColorSetting': second_outline_color.value
     };
 
     // Save for next launch
@@ -31,7 +37,9 @@ function getConfigData() {
     localStorage['window_color'] = options['windowColorSetting'];
     localStorage['window_border_color'] = options['windowBorderColorSetting'];
     localStorage['window_text_color'] = options['windowTextColorSetting'];
-
+    localStorage['light_theme_setting'] = options['lightThemeSetting'];
+    localStorage['second_hand_color'] = options['secondHandColorSetting'];
+    localStorage['second_outline_color'] = options['secondOutlineColorSetting'];
 
     console.log('Got options: ' + JSON.stringify(options));
     return options;
@@ -70,6 +78,9 @@ submitButton.addEventListener('click', function() {
     var windowColorSetting = document.getElementById('window_color');
     var windowBorderColorSetting = document.getElementById('window_border_color');
     var windowTextColorSetting = document.getElementById('window_text_color');
+    var lightThemeSetting = document.getElementById('light_theme_setting_slider');
+    var secondHandColorSetting = document.getElementById('second_hand_color');
+    var secondOutlineColorSetting = document.getElementById('second_outline_color');
 
     // Load any previously saved configuration, if available
     if(localStorage['tick_setting']) {
@@ -116,6 +127,17 @@ submitButton.addEventListener('click', function() {
 	console.log('window_text_color found');
 	windowTextColorSetting.value = localStorage['window_text_color'];
     }
-
+    if (localStorage['light_theme_setting']) {
+	console.log('light_theme_setting found');
+	lightThemeSetting.checked = JSON.parse(localStorage['light_theme_setting']);
+    }
+    if (localStorage['second_hand_color']) {
+	console.log('second_hand_color found');
+	secondHandColorSetting.value = localStorage['second_hand_color'];
+    }
+    if (localStorage['second_outline_color']) {
+	console.log('second_outline_color found');
+	secondOutlineColorSetting.value = localStorage['second_outline_color'];
+    }
 })();
 

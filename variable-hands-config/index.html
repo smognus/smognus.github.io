@@ -29,7 +29,7 @@
     <div class="item-container">
       <div class="item-container-content">
         <label class="item">
-          Show Second Hand
+          Second Hand
           <input id="tick_setting_slider" type="checkbox" class="item-toggle">
         </label>
       </div>
@@ -63,7 +63,7 @@
     <div class="item-container">
       <div class="item-container-content">
         <label class="item">
-          Show Day
+          Day
           <input id="day_setting_slider" type="checkbox" class="item-toggle">
         </label>
       </div>
@@ -84,6 +84,17 @@
       </div>
     </div>
 
+    <div class="item-container">
+      <div class="item-container-content">
+        <label class="item">
+          Battery Status
+          <input id="battery_setting_slider" type="checkbox" class="item-toggle">
+        </label>
+      </div>
+      <div class="item-container-footer">
+	Show the current battery level underneath the `12'. 
+      </div>
+    </div>
 
     <div class="item-container">
       <div class="item-container-content">
@@ -99,22 +110,36 @@
 	  Info Text Color
 	  <input type="text" class="item-color item-color-sunny" id="window_text_color" value="0x000000">
 	</label>
+	<div class="item-container-footer">
+	  Colors for the day and digital time windows.
+	</div>
       </div>
-      <div class="item-container-footer">
-	Colors for the day and digital time windows.
+
+    <div class="item-container">
+      <div class="item-container-content">
+	<label class="item">
+	  Second Hand Color
+	  <input type="text" class="item-color item-color-sunny" id="second_hand_color" value="0xff0000">
+	</label>
+	<label class="item">
+	  Second Hand Outline Color
+	  <input type="text" class="item-color item-color-sunny" id="second_outline_color" value="0xffaaff">
+	</label>
+	<div class="item-container-footer">
+	  Colors for the second hand.
+	</div>
       </div>
     </div>
 
     <div class="item-container">
       <div class="item-container-content">
-        <label class="item">
-          Battery Status
-          <input id="battery_setting_slider" type="checkbox" class="item-toggle">
-        </label>
-      </div>
-
-      <div class="item-container-footer">
-	Show the current battery level underneath the `12'. 
+	<label class="item">
+	  Lighter Theme
+          <input id="light_theme_setting_slider" type="checkbox" class="item-toggle">
+	</label>
+	<div class="item-container-footer">
+	  Draw with a white face and black marks.
+	</div>
       </div>
     </div>
 
